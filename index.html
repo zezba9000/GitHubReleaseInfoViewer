@@ -29,16 +29,17 @@
                     for (var i = 0; i != objs.length; i++)
                     {
                         var obj = objs[i];
+                        var result = `${obj.name}: `;
                         for (var i2 = 0; i2 != obj.assets.length; i2++)
                         {
                             var asset = obj.assets[i2];
-                            var value = `${obj.name}: Downloads = ${asset.download_count}`;
-                            console.log(value);
-
-                            var entry = document.createElement('li');
-                            entry.appendChild(document.createTextNode(value));
-                            itemsPar.appendChild(entry);
+                            result += `[${asset.name} (Downloads = ${asset.download_count})] `;
                         }
+
+                        console.log(result);
+                        var entry = document.createElement('li');
+                        entry.appendChild(document.createTextNode(result));
+                        itemsPar.appendChild(entry);
                     }
                 }
                 else
